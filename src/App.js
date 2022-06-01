@@ -13,6 +13,9 @@ function App() {
       },{
         id: 3,
           name: 'Tom'
+      },{
+        id: 3,
+          name: 'Fred'
       }
   ]
   let ListB = [
@@ -24,12 +27,13 @@ function App() {
   // ADD ListA ITEMS(itemA) TO ListB If ListB DOESN'T ALREADY HAVE THOSE ITEMS
   let Users = ListA.filter((itemA)=> {
     return !ListB.find((itemB)=> {
-      return itemA.id === itemB.id;
+      return itemA.id === itemB.id && itemA.name === itemB.name;
     })
   })
   console.log("List A",ListA);
   console.log("List B",ListB);
 
+  console.log("Users",Users);
   let ListC = ListB.concat(...Users);
   console.log("List C", ListC);
 
